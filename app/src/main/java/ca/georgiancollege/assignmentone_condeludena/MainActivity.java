@@ -7,12 +7,10 @@
 package ca.georgiancollege.assignmentone_condeludena;
 
 import android.os.Bundle;
+import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMainBinding;
 
@@ -20,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     //declare binding
     ActivityMainBinding binding;
+    //declare viewmodel
+    SearchViewMovieModel viewSearchMovieModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +28,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //instantiate a ViewModelProvide to this class with SearchviewModel.class assign to varible
+        viewSearchMovieModel = new ViewModelProvider(this).get(SearchViewMovieModel.class);
+
+        binding.searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewSearchMovieModel.MovieSearch();
+            }
+        });
     }
 }
