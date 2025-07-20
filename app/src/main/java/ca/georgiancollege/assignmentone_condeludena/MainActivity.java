@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         binding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewSearchMovieModel.MovieSearch();
+                String movieName = binding.editMovieText.getText().toString().trim();
+                viewSearchMovieModel.MovieSearch(movieName);
             }
         });
     }
