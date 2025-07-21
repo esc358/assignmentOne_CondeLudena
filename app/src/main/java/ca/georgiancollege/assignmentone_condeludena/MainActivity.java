@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMainBinding;
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     //declare viewmodel
     SearchViewMovieModel viewSearchMovieModel;
+    //declare MovieAdapter
+    MovieAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         //instantiate a ViewModelProvide to this class with SearchviewModel.class assign to varible
         viewSearchMovieModel = new ViewModelProvider(this).get(SearchViewMovieModel.class);
+
+        // 1) Setup RecyclerView & Adapter
+        adapter = new MovieAdapter();
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setAdapter(adapter);
+
+        viewSearchMovieModel.getMoviesData().observe(this, movie -> {
+            adapter.addItem(movie);
+        });
 
         binding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
