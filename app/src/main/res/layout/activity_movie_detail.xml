@@ -34,24 +34,72 @@
                 tools:srcCompat="@drawable/ic_launcher_foreground" />
 
 
-            <TextView
-                android:id="@+id/detailTitle"
+            <LinearLayout
+                android:id="@+id/titleMovieLinearLayout"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/studio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="@dimen/_23sp"
+                    tools:text="@string/title" />
+
+                <TextView
+                    android:id="@+id/detailTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:paddingStart="@dimen/_8dp"
+                    android:paddingEnd="@dimen/_8dp"
+                    android:textSize="@dimen/_23sp"
+                    android:textStyle="bold|italic"
+                    tools:text="@string/movietitle" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/studioMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingTop="@dimen/_8dp"
                 android:textSize="@dimen/_23sp"
-                android:textStyle="bold"
-                tools:text="Movie Title" />
+                tools:text="@string/studio" />
 
             <TextView
                 android:id="@+id/detailStudio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingTop="@dimen/_4dp"
+                android:paddingStart="@dimen/_8dp"
+                android:paddingEnd="@dimen/_8dp"
                 android:textSize="@dimen/_23sp"
-                tools:text="Studio Name" />
+                tools:text="@string/dumb_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratingMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/_23sp"
+                tools:text="@string/rating" />
 
             <TextView
                 android:id="@+id/detailRating"
@@ -60,34 +108,91 @@
                 android:fontFamily="@font/roboto"
                 android:paddingTop="@dimen/_4dp"
                 android:textSize="@dimen/_23sp"
-                tools:text="PG-13" />
+                android:paddingStart="@dimen/_8dp"
+                android:paddingEnd="@dimen/_8dp"
+                tools:text="@string/dumb_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yearMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/_23sp"
+                tools:text="@string/year"/>
 
             <TextView
                 android:id="@+id/detailYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingTop="@dimen/_4dp"
+                android:paddingStart="@dimen/_8dp"
+                android:paddingEnd="@dimen/_8dp"
                 android:textSize="@dimen/_23sp"
-                tools:text="2025" />
+                tools:text="@string/dumb_text" />
 
-            <TextView
-                android:id="@+id/detailRunTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:paddingTop="@dimen/_4dp"
-                android:textSize="@dimen/_23sp"
-                tools:text="61min" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/detailDirector"
+            <LinearLayout
+                android:id="@+id/runTimeMovieLinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:paddingTop="4dp"
-                android:textSize="@dimen/_23sp"
-                tools:text="61min" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="@dimen/_23sp"
+                    tools:text="@string/run_time"/>
+
+                <TextView
+                    android:id="@+id/detailRunTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:paddingStart="@dimen/_8dp"
+                    android:paddingEnd="@dimen/_8dp"
+                    android:textSize="@dimen/_23sp"
+                    tools:text="@string/dumb_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/directorMovieLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="@dimen/_23sp"
+                    tools:text="@string/director"/>
+
+                <TextView
+                    android:id="@+id/detailDirector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:paddingStart="@dimen/_8dp"
+                    android:paddingEnd="@dimen/_8dp"
+                    android:textSize="@dimen/_23sp"
+                    tools:text="@string/dumb_text" />
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/detailActors"

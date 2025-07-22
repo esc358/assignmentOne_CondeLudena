@@ -3,11 +3,15 @@
     <string name="movie_finder">Movie Finder</string>
     <string name="name_a_movie">Name a movie...</string>
     <string name="search">Search</string>
-    <string name="title">Title:</string>
-    <string name="studio">Studio:</string>
-    <string name="rating">Rating:</string>
+    <string name="title">Title: </string>
+    <string name="studio">Studio: </string>
+    <string name="rating">Rating: </string>
     <string name="year">Year:</string>
     <string name="details">Details</string>
     <string name="back">Back</string>
     <string name="poster_image">poster image</string>
+    <string name="movietitle">MovieTitle</string>
+    <string name="dumb_text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</string>
+    <string name="run_time">Run Time: </string>
+    <string name="director">Director: </string>
 </resources>
