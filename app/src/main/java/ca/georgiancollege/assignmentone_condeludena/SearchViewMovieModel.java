@@ -6,6 +6,8 @@
  * */
 package ca.georgiancollege.assignmentone_condeludena;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -67,6 +69,7 @@ public class SearchViewMovieModel extends ViewModel {
             //construct the String for urlSearchMovies
             String urlSearchMovies = url + apiKey + searchMovie + name + movieType;
 
+            Log.i("Tag",urlSearchMovies);
             //call method from APIClient and pass url, newCallback
             ApiClient.get(urlSearchMovies, new Callback() {
                 @Override

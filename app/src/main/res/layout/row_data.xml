@@ -4,16 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="300dp"
-    app:cardCornerRadius="20dp"
-    android:layout_marginHorizontal="14dp"
-    android:layout_marginVertical="8dp"
-    android:background="@color/black">
+    app:cardElevation="@dimen/_300dp"
+    app:cardCornerRadius="@dimen/_20dp"
+    android:layout_marginHorizontal="@dimen/_14dp"
+    android:layout_marginVertical="@dimen/_8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="@dimen/_8dp"
+        android:background="@color/ebe1c6">
 
         <GridLayout
             android:id="@+id/gridLayout"
@@ -21,78 +21,94 @@
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:rowCount="4"
-            android:padding="12dp">
+            android:padding="@dimen/_12dp">
 
-            <!-- Row 0: Title -->
+            <!-- Row Title -->
             <TextView
                 android:layout_row="0"
                 android:layout_column="0"
-                android:text="Title:"
+                android:text="@string/title"
                 android:textStyle="bold"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
             <TextView
                 android:id="@+id/movieTextName"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:textSize="18sp"
-                android:padding="4dp"/>
+                android:textSize="@dimen/_23sp"
+                android:padding="@dimen/_4dp"
+                android:fontFamily="@font/roboto"/>
 
-            <!-- Row 1: Studio -->
+            <!-- Row Studio -->
             <TextView
                 android:layout_row="1"
                 android:layout_column="0"
-                android:text="Studio:"
+                android:text="@string/studio"
                 android:textStyle="bold"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
             <TextView
                 android:id="@+id/studioTextName"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:textSize="16sp"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
-            <!-- Row 2: Rating -->
+            <!-- Row Rating -->
             <TextView
                 android:layout_row="2"
                 android:layout_column="0"
-                android:text="Rating:"
+                android:text="@string/rating"
                 android:textStyle="bold"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
             <TextView
                 android:id="@+id/ratingTextName"
                 android:layout_row="2"
                 android:layout_column="1"
-                android:textSize="16sp"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
-            <!-- Row 3: Year -->
+            <!-- Row Year -->
             <TextView
                 android:layout_row="3"
                 android:layout_column="0"
-                android:text="Year:"
+                android:text="@string/year"
                 android:textStyle="bold"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
 
             <TextView
                 android:id="@+id/yearTextName"
                 android:layout_row="3"
                 android:layout_column="1"
-                android:textSize="16sp"
-                android:padding="4dp"/>
+                android:padding="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                android:fontFamily="@font/roboto"/>
         </GridLayout>
+
         <Button
             android:id="@+id/actionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Details"
+            android:text="@string/details"
             android:layout_below="@id/gridLayout"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
-            android:padding="8dp"
-            android:onClick="onDetailClicked"/>
+            android:layout_marginTop="@dimen/_8dp"
+            android:padding="@dimen/_8dp"
+            android:onClick="onDetailClicked"
+            android:textSize="@dimen/_23sp"
+            android:backgroundTint="@color/eab26c"
+            android:fontFamily="@font/roboto"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

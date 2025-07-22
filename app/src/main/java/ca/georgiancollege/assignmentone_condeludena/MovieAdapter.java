@@ -1,5 +1,6 @@
 package ca.georgiancollege.assignmentone_condeludena;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -66,6 +67,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return items.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setItems(List<MovieModel> movieList) {
         items.clear();
         items.addAll(movieList);
