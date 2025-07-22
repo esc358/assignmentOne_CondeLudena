@@ -26,24 +26,28 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             this.binding = binding;
         }
 
-        public void bind(MovieModel m) {
-            binding.movieTextName.setText(m.getTitle());
-            binding.yearTextName.setText(m.getYear());
-            binding.studioTextName.setText(m.getStudio());
-            binding.ratingTextName.setText(m.getRatingValue());
-            binding.actionButton.setTag(m);
+        public void bind(MovieModel movieModel) {
+            binding.movieTextName.setText(movieModel.getTitle());
+            binding.yearTextName.setText(movieModel.getYear());
+            binding.studioTextName.setText(movieModel.getStudio());
+            binding.ratingTextName.setText(movieModel.getRatingValue());
+            binding.actionButton.setTag(movieModel);
 
             binding.actionButton.setOnClickListener(v -> {
-                Context ctx = v.getContext();
-                Intent i = new Intent(ctx, MovieDetail.class);
+                Context context = v.getContext();
+                Intent intent = new Intent(context, MovieDetail.class);
                 // pass fields individually
-                i.putExtra("extra_title",  m.getTitle());
-                i.putExtra("extra_studio", m.getStudio());
-                i.putExtra("extra_rating", m.getRatingValue());
-                i.putExtra("extra_year",   m.getYear());
-                // if your model is Parcelable you could do:
-                // i.putExtra("extra_movie", m);
-                ctx.startActivity(i);
+                intent.putExtra("extra_poster", movieModel.getPoster());
+                intent.putExtra("extra_title", movieModel.getTitle());
+                intent.putExtra("extra_studio", movieModel.getStudio());
+                intent.putExtra("extra_rating", movieModel.getRatingValue());
+                intent.putExtra("extra_year", movieModel.getYear());
+                intent.putExtra("extra_runTime", movieModel.getRunTime());
+                intent.putExtra("extra_director", movieModel.getDirector());
+                intent.putExtra("exttra_actors", movieModel.getActors());
+                intent.putExtra("extra_plot", movieModel.getPlot());
+
+                context.startActivity(intent);
             });
         }
     }
