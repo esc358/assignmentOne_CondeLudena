@@ -1,13 +1,15 @@
+/*
+ * Emilio Sebastian Conde Ludena
+ * 200478144
+ * July 22, 2025
+ * 5:02pm
+ * */
 package ca.georgiancollege.assignmentone_condeludena;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.squareup.picasso.Picasso;
-
 import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMovieDetailBinding;
 
 public class MovieDetail extends AppCompatActivity {
@@ -31,10 +33,14 @@ public class MovieDetail extends AppCompatActivity {
         String actor = getIntent().getStringExtra("extra_actors");
         String plot = getIntent().getStringExtra("extra_plot");
 
-        //picasso.get.load poster ulr into binding detail poster
-        Picasso.get()
-                .load(posterUrl)
-                .into(activityMovieDetailBinding.detailPoster);
+        if ("N/A".equals(posterUrl)) {
+            activityMovieDetailBinding.detailPoster.setImageResource(R.drawable.no_poster);
+        }else{
+            //picasso.get.load poster ulr into binding detail poster
+            Picasso.get()
+                    .load(posterUrl)
+                    .into(activityMovieDetailBinding.detailPoster);
+        }
 
         // Populate
         activityMovieDetailBinding.detailTitle.setText("Title: " + title);

@@ -1,109 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MovieDetail"
-        android:background="@color/ebe1c6">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ebe1c6"
+    tools:context=".MovieDetail">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/_16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/detailPoster"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="100dp"
-            android:scaleType="centerCrop"
-            tools:srcCompat="@drawable/ic_launcher_foreground" />
 
-        <TextView
-            android:id="@+id/detailTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_8dp"
-            android:textStyle="bold"
-            tools:text="Movie Title"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"/>
+            android:orientation="vertical"
+            android:padding="@dimen/_16dp">
 
-        <TextView
-            android:id="@+id/detailStudio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_4dp"
-            tools:text="Studio Name"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"/>
+            <ImageView
+                android:id="@+id/detailPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/poster_image"
+                android:padding="@dimen/_12dp"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@drawable/ic_launcher_foreground" />
 
-        <TextView
-            android:id="@+id/detailRating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_4dp"
-            tools:text="PG-13"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"/>
 
-        <TextView
-            android:id="@+id/detailYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_4dp"
-            tools:text="2025"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"/>
+            <TextView
+                android:id="@+id/detailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_8dp"
+                android:textSize="@dimen/_23sp"
+                android:textStyle="bold"
+                tools:text="Movie Title" />
 
-        <TextView
-            android:id="@+id/detailRunTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_4dp"
-            tools:text="61min"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"/>
+            <TextView
+                android:id="@+id/detailStudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="Studio Name" />
 
-        <TextView
-            android:id="@+id/detailDirector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"
-            tools:text="61min" />
+            <TextView
+                android:id="@+id/detailRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="PG-13" />
 
-        <TextView
-            android:id="@+id/detailActors"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_4dp"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"
-            tools:text="61min" />
+            <TextView
+                android:id="@+id/detailYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="2025" />
 
-        <TextView
-            android:id="@+id/detailPlot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_12dp"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"
-            tools:text="This is the movie synopsis..." />
+            <TextView
+                android:id="@+id/detailRunTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="61min" />
 
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16dp"
-            android:text="@string/back"
-            android:textSize="@dimen/_23sp"
-            android:fontFamily="@font/roboto"
-            android:backgroundTint="@color/eab26c"/>
+            <TextView
+                android:id="@+id/detailDirector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="61min" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/detailActors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_4dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="61min" />
+
+            <TextView
+                android:id="@+id/detailPlot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="@dimen/_12dp"
+                android:textSize="@dimen/_23sp"
+                tools:text="This is the movie synopsis..." />
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:backgroundTint="@color/eab26c"
+                android:fontFamily="@font/roboto"
+                android:text="@string/back"
+                android:textSize="@dimen/_23sp" />
+
+        </LinearLayout>
     </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
