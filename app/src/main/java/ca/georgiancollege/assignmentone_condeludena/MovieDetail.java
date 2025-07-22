@@ -2,7 +2,12 @@ package ca.georgiancollege.assignmentone_condeludena;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.squareup.picasso.Picasso;
+
 import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMovieDetailBinding;
 
 public class MovieDetail extends AppCompatActivity {
@@ -15,9 +20,8 @@ public class MovieDetail extends AppCompatActivity {
         activityMovieDetailBinding = ActivityMovieDetailBinding.inflate(getLayoutInflater());
         setContentView(activityMovieDetailBinding.getRoot());
 
-
         // Read the extras
-        String poster = getIntent().getStringExtra("extra_poster");
+        String posterUrl = getIntent().getStringExtra("extra_poster");
         String title = getIntent().getStringExtra("extra_title");
         String studio = getIntent().getStringExtra("extra_studio");
         String rating = getIntent().getStringExtra("extra_rating");
@@ -27,6 +31,10 @@ public class MovieDetail extends AppCompatActivity {
         String actor = getIntent().getStringExtra("extra_actors");
         String plot = getIntent().getStringExtra("extra_plot");
 
+        //picasso.get.load poster ulr into binding detail poster
+        Picasso.get()
+                .load(posterUrl)
+                .into(activityMovieDetailBinding.detailPoster);
 
         // Populate
         activityMovieDetailBinding.detailTitle.setText("Title: " + title);
@@ -37,7 +45,6 @@ public class MovieDetail extends AppCompatActivity {
         activityMovieDetailBinding.detailDirector.setText("Director: " + director);
         activityMovieDetailBinding.detailActors.setText("Actors: " + actor);
         activityMovieDetailBinding.detailPlot.setText("Plot: " + plot);
-
 
         // Back
         activityMovieDetailBinding.backButton.setOnClickListener(v -> finish());
