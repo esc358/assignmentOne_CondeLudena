@@ -7,12 +7,60 @@
 
 package ca.georgiancollege.assignmentone_condeludena;
 
+//Class contains field and behaviour for the MovieModel based on ExampleTitle.json
 public class MovieModel {
+    //fields for the movie
     private String title;
     private String studio;
     private String ratingValue;
     private String year;
     private String poster;
+    private String released;
+    private String runTime;
+    private String director;
+    private String actors;
+    private String plot;
+
+    //getters and setters for the fields
+    public String getReleased() {
+        return released;
+    }
+
+    public void setReleased(String released) {
+        this.released = released;
+    }
+
+    public String getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(String runTime) {
+        this.runTime = runTime;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    public String getPlot() {
+        return plot;
+    }
+
+    public void setPlot(String plot) {
+        this.plot = plot;
+    }
 
     public String getTitle() {
         return title;
