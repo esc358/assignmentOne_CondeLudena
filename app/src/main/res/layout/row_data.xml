@@ -16,48 +16,83 @@
         android:padding="8dp">
 
         <GridLayout
+            android:id="@+id/gridLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:rowCount="2"
+            android:rowCount="4"
             android:padding="12dp">
+
+            <!-- Row 0: Title -->
+            <TextView
+                android:layout_row="0"
+                android:layout_column="0"
+                android:text="Title:"
+                android:textStyle="bold"
+                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/movieTextName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Movie Title"
+                android:layout_row="0"
+                android:layout_column="1"
                 android:textSize="18sp"
+                android:padding="4dp"/>
+
+            <!-- Row 1: Studio -->
+            <TextView
+                android:layout_row="1"
+                android:layout_column="0"
+                android:text="Studio:"
                 android:textStyle="bold"
-                android:padding="8dp" />
+                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/studioTextName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Studio"
+                android:layout_row="1"
+                android:layout_column="1"
                 android:textSize="16sp"
-                android:padding="8dp"/>
+                android:padding="4dp"/>
+
+            <!-- Row 2: Rating -->
+            <TextView
+                android:layout_row="2"
+                android:layout_column="0"
+                android:text="Rating:"
+                android:textStyle="bold"
+                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/ratingTextName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Rating"
+                android:layout_row="2"
+                android:layout_column="1"
                 android:textSize="16sp"
-                android:padding="8dp"/>
+                android:padding="4dp"/>
+
+            <!-- Row 3: Year -->
+            <TextView
+                android:layout_row="3"
+                android:layout_column="0"
+                android:text="Year:"
+                android:textStyle="bold"
+                android:padding="4dp"/>
 
             <TextView
                 android:id="@+id/yearTextName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Year"
+                android:layout_row="3"
+                android:layout_column="1"
                 android:textSize="16sp"
-                android:padding="8dp"/>
+                android:padding="4dp"/>
         </GridLayout>
+        <Button
+            android:id="@+id/actionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:layout_below="@id/gridLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:onClick="onDetailClicked"/>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

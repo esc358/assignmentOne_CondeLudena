@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">assignmentOne_CondeLudena</string>
+    <string name="movie_finder">Movie Finder</string>
+    <string name="name_a_movie">Name a movie...</string>
+    <string name="search">Search</string>
 </resources>

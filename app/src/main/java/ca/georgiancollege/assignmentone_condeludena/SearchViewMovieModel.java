@@ -22,19 +22,25 @@ import okhttp3.Response;
 public class SearchViewMovieModel extends ViewModel {
 
     //instantiate SearchMovieModel and MovieModel
-    SearchMovieModel searchMovieModel = new SearchMovieModel();
-
 
     //private final MutableLiveData<SearchMovieModel> searchMovieData = new MutableLiveData<SearchMovieModel>();
     private final MutableLiveData<MovieModel> searchMovieData = new MutableLiveData<MovieModel>();
-
+    private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
+    private final MutableLiveData<MovieModel> movieSelected = new MutableLiveData<>();
 
     public SearchViewMovieModel() {
     }
 
+    public LiveData<String> getErrorMessage() { return errorMessage; }
+
     public LiveData<MovieModel> getMoviesData(){
         return searchMovieData;
     }
+
+    public void selectMovie(MovieModel movie){
+        movieSelected.setValue(movie);
+    }
+
     public void MovieSearch(String name){
 
         String url = "https://www.omdbapi.com/?apikey=";
@@ -46,13 +52,17 @@ public class SearchViewMovieModel extends ViewModel {
         //validate if name has characters
         if (name.isEmpty())
         {
-            String empty = "Search a movie name. Cannot be empty.";
+            errorMessage.postValue("Search a movie name. Cannot be empty.");
         }else{
+            errorMessage.postValue(null);
             String urlSearchMovies = url + apiKey + searchMovie + name + movieType;
+            Log.i("Tag", urlSearchMovies);
             ApiClient.get(urlSearchMovies, new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
                 }
+
 
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
@@ -62,24 +72,36 @@ public class SearchViewMovieModel extends ViewModel {
                     try{
                         //instantiate the JSONObject and pass the string response data
                         jsonSearchArray = new JSONObject(responseData);
-                        //since Search is a JSONArray get the string
+
+                        String responseJSON = jsonSearchArray.getString("Response");
+
+                        Log.i("Tag", responseJSON);
+
+                        if(responseJSON.equals("False")){
+                            errorMessage.postValue(jsonSearchArray.getString("Error"));
+                            return;
+                        }
+
+
+                                //since Search is a JSONArray get the string
                         JSONArray moviesJSONArray = jsonSearchArray.getJSONArray("Search");
                         //loop through the array
                         for (int i = 0; i < moviesJSONArray.length(); i++) {
+                            //instantiate a Movie Model
                             MovieModel movieModel = new MovieModel();
                             //create a JSON object and get location of i
                             JSONObject movie = moviesJSONArray.getJSONObject(i);
                             //Movie Title, Studio, Rating, and the Year
-                            String title  = movie.optString("Title");
+                            String title  = movie.getString("Title");
+                            String year = movie.getString("Year");
+                            String imdbID = movie.getString("imdbID");
 
-                            String year = movie.optString("Year");
+
                             movieModel.setTitle(title);
                             movieModel.setYear(year);
 
-                            String imdbID = movie.optString("imdbID");
-
                             String urlMovieTitle = url + apiKey + searchID+ imdbID + movieType;
-                            Log.i("tag", urlMovieTitle);
+
                             ApiClient.get(urlMovieTitle, new Callback() {
                                 @Override
                                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -95,7 +117,7 @@ public class SearchViewMovieModel extends ViewModel {
 
                                         String ratingValue = "No rating available";
                                         JSONArray ratingsJSONArray = jsonMovie.optJSONArray("Ratings");
-
+                                        movieModel.setRatingValue(ratingValue);
                                         if (ratingsJSONArray != null && ratingsJSONArray.length() > 0) {
                                             JSONObject ratingObj = ratingsJSONArray.optJSONObject(0);
                                             if (ratingObj != null) {
