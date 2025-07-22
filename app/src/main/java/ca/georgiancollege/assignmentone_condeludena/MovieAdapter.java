@@ -1,3 +1,9 @@
+/*
+ * Emilio Sebastian Conde Ludena
+ * 200478144
+ * July 22, 2025
+ * 2:36pm
+ * */
 package ca.georgiancollege.assignmentone_condeludena;
 
 import android.annotation.SuppressLint;
@@ -5,10 +11,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +21,7 @@ import ca.georgiancollege.assignmentone_condeludena.databinding.RowDataBinding;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private final List<MovieModel> items = new ArrayList<>();
 
-    // 1) Use the generated RowMovieBinding in your ViewHolder
+    //Use the generated RowMovieBinding in your ViewHolder
     static class MovieViewHolder extends RecyclerView.ViewHolder {
         private final RowDataBinding binding;
 
@@ -44,7 +48,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 intent.putExtra("extra_year", movieModel.getYear());
                 intent.putExtra("extra_runTime", movieModel.getRunTime());
                 intent.putExtra("extra_director", movieModel.getDirector());
-                intent.putExtra("exttra_actors", movieModel.getActors());
+                intent.putExtra("extra_actors", movieModel.getActors());
                 intent.putExtra("extra_plot", movieModel.getPlot());
 
                 context.startActivity(intent);
