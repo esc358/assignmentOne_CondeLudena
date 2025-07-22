@@ -66,10 +66,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return items.size();
     }
 
-    // helper to add a movie and refresh
-    public void addItem(MovieModel movie) {
-        items.add(movie);
-        notifyItemInserted(items.size() - 1);
+    public void setItems(List<MovieModel> movieList) {
+        items.clear();
+        items.addAll(movieList);
+        notifyDataSetChanged();
     }
 
     public void clear() {

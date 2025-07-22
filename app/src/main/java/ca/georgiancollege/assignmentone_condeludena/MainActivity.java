@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.recyclerView.setAdapter(adapter);
 
         viewSearchMovieModel.getMoviesData().observe(this, movie -> {
-            adapter.addItem(movie);
+            adapter.setItems(movie);
         });
 
         viewSearchMovieModel.getErrorMessage().observe(this, err -> {
