@@ -9,7 +9,7 @@
     tools:context=".MovieDetail">
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingBottom="8dp">
+                android:paddingBottom="@dimen/_8dp">
 
                 <TextView
                     android:id="@+id/studio"
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="8dp">
+            android:paddingBottom="@dimen/_8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="8dp">
+            android:paddingBottom="@dimen/_8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -119,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="8dp">
+            android:paddingBottom="@dimen/_8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingBottom="8dp">
+                android:paddingBottom="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingBottom="8dp">
+                android:paddingBottom="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,10 +189,21 @@
                     android:paddingEnd="@dimen/_8dp"
                     android:textSize="@dimen/_23sp"
                     tools:text="@string/dumb_text" />
-
             </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/actorsMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_8dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/_23sp"
+                tools:text="@string/actors"/>
 
             <TextView
                 android:id="@+id/detailActors"
@@ -201,7 +212,24 @@
                 android:fontFamily="@font/roboto"
                 android:paddingTop="@dimen/_4dp"
                 android:textSize="@dimen/_23sp"
-                tools:text="61min" />
+                android:paddingStart="@dimen/_8dp"
+                android:paddingEnd="@dimen/_8dp"
+                tools:text="@string/dumb_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/plotMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/_23sp"
+                tools:text="@string/plot"/>
 
             <TextView
                 android:id="@+id/detailPlot"
@@ -210,17 +238,22 @@
                 android:fontFamily="@font/roboto"
                 android:paddingTop="@dimen/_12dp"
                 android:textSize="@dimen/_23sp"
-                tools:text="This is the movie synopsis..." />
+                android:paddingStart="@dimen/_8dp"
+                android:paddingEnd="@dimen/_8dp"
+                tools:text="@string/dumb_text" />
+        </LinearLayout>
 
             <Button
                 android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16dp"
                 android:backgroundTint="@color/eab26c"
                 android:fontFamily="@font/roboto"
                 android:text="@string/back"
-                android:textSize="@dimen/_23sp" />
+                android:textSize="@dimen/_23sp"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="@dimen/_12dp"
+                android:paddingTop="@dimen/_12dp" />
 
         </LinearLayout>
     </ScrollView>

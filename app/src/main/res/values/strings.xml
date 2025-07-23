@@ -14,4 +14,6 @@
     <string name="dumb_text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</string>
     <string name="run_time">Run Time: </string>
     <string name="director">Director: </string>
+    <string name="actors">Actors:</string>
+    <string name="plot">Plot:</string>
 </resources>
