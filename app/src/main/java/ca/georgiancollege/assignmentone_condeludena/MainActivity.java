@@ -17,12 +17,10 @@ import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMainBind
 
 public class MainActivity extends AppCompatActivity {
 
-    //declare binding
-    ActivityMainBinding activityMainBinding;
-    //declare viewmodel
-    SearchViewMovieModel viewSearchMovieModel;
-    //declare MovieAdapter
-    MovieAdapter movieAdapter;
+    //declare them private for security
+    private ActivityMainBinding activityMainBinding;
+    private SearchViewMovieModel viewSearchMovieModel;
+    private MovieAdapter movieAdapter;
 
 
     @Override
@@ -40,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.recyclerView.setAdapter(movieAdapter);
 
-        viewSearchMovieModel.getMoviesData().observe(this, movie -> {
-            movieAdapter.setMovieItems(movie);
+        //use live data from searchMovieData to observe list of movies how adapter changes list of movies
+        viewSearchMovieModel.getMoviesData().observe(this, movies -> {
+            movieAdapter.setMovieItems(movies);
         });
 
+        //display error string in application using live data
         viewSearchMovieModel.getErrorMessage().observe(this, err -> {
             if (err != null) {
                 activityMainBinding.errorText.setText(err);
@@ -53,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //lister for button
         activityMainBinding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //get text input and parse it as string
                 String movieName = activityMainBinding.editMovieText.getText().toString().trim();
+                //use
                 viewSearchMovieModel.MovieSearch(movieName);
             }
         });

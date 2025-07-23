@@ -24,13 +24,9 @@ import okhttp3.Response;
 
 public class SearchViewMovieModel extends ViewModel {
 
-    //instantiate MultableLiveDate for a List of MovieModel, String
+    //instantiate MutableLiveDate for a List of MovieModel, String
     private final MutableLiveData<List<MovieModel>> searchMovieData = new MutableLiveData<>();
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>();
-
-
-    public SearchViewMovieModel() {
-    }
 
     public LiveData<String> getErrorMessage() { return errorMessage; }
 
@@ -38,7 +34,6 @@ public class SearchViewMovieModel extends ViewModel {
     public LiveData<List<MovieModel>> getMoviesData(){
         return searchMovieData;
     }
-
 
     /**
      *Searches for movies using the OMDb API based on the provided movie name.
@@ -140,7 +135,6 @@ public class SearchViewMovieModel extends ViewModel {
                                     //initialize a null JSONObject
                                     JSONObject jsonMovieInfo = null;
 
-
                                     try {
                                         //assign a new JSONObject passing the responseData
                                         jsonMovieInfo = new JSONObject(responseData);
@@ -184,7 +178,7 @@ public class SearchViewMovieModel extends ViewModel {
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
-                                    //for each iteration sync movieList
+                                    //for each iteration sync movieList must be used because of Callback
                                     synchronized (movieList) {
                                         //add movieModel object to movieList
                                         movieList.add(movieModel);

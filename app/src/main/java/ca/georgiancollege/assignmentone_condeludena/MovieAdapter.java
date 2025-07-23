@@ -32,7 +32,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        holder.bind(movieItems.get(position));
+        holder.movieData(movieItems.get(position));
     }
 
     @Override

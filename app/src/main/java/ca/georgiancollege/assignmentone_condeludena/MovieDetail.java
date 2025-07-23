@@ -13,16 +13,18 @@ import com.squareup.picasso.Picasso;
 import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMovieDetailBinding;
 
 public class MovieDetail extends AppCompatActivity {
+    //initialize binding
     private ActivityMovieDetailBinding activityMovieDetailBinding;
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //binding for view
         activityMovieDetailBinding = ActivityMovieDetailBinding.inflate(getLayoutInflater());
         setContentView(activityMovieDetailBinding.getRoot());
 
-        // Read the extras
+        //read the extras from intent
         String posterUrl = getIntent().getStringExtra("extra_poster");
         String title = getIntent().getStringExtra("extra_title");
         String studio = getIntent().getStringExtra("extra_studio");
@@ -33,7 +35,9 @@ public class MovieDetail extends AppCompatActivity {
         String actor = getIntent().getStringExtra("extra_actors");
         String plot = getIntent().getStringExtra("extra_plot");
 
+        //check if poster url is empty
         if ("N/A".equals(posterUrl)) {
+            //set image from drawable folder
             activityMovieDetailBinding.detailPoster.setImageResource(R.drawable.no_poster);
         }else{
             //picasso.get.load poster ulr into binding detail poster
@@ -42,7 +46,7 @@ public class MovieDetail extends AppCompatActivity {
                     .into(activityMovieDetailBinding.detailPoster);
         }
 
-        // Populate
+        //populate fields by binding
         activityMovieDetailBinding.detailTitle.setText("Title: " + title);
         activityMovieDetailBinding.detailStudio.setText("Studio: " + studio);
         activityMovieDetailBinding.detailRating.setText("Rating: " + rating);
@@ -52,7 +56,7 @@ public class MovieDetail extends AppCompatActivity {
         activityMovieDetailBinding.detailActors.setText("Actors: " + actor);
         activityMovieDetailBinding.detailPlot.setText("Plot: " + plot);
 
-        // Back
+        //closes the current view and sends to back
         activityMovieDetailBinding.backButton.setOnClickListener(v -> finish());
     }
 }

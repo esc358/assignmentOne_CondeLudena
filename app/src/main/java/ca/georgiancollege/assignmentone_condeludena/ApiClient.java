@@ -7,7 +7,6 @@
 package ca.georgiancollege.assignmentone_condeludena;
 
 import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
@@ -15,11 +14,9 @@ import okhttp3.Request;
 public class ApiClient {
 
     private static final OkHttpClient movieClient = new OkHttpClient();
-    private static final MediaType Json = MediaType.get("application/json; charset=utf-8");
 
     public static void get(String urlMovie, Callback callback){
         Request request = new Request.Builder().url(urlMovie).build();
-
         movieClient.newCall(request).enqueue(callback);
     }
 }
