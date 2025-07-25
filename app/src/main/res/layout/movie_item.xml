@@ -105,7 +105,6 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_8dp"
             android:padding="@dimen/_8dp"
-            android:onClick="onDetailClicked"
             android:textSize="@dimen/_23sp"
             android:backgroundTint="@color/eab26c"
             android:fontFamily="@font/roboto"/>

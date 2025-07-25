@@ -24,7 +24,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // 2) Inflate via RowMovieBinding rather than manual inflate
+        // 2) Inflate via RowMovieBinding
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         MovieItemBinding movieItemBinding = MovieItemBinding.inflate(inflater, parent, false);
         return new MovieViewHolder(movieItemBinding);
@@ -32,6 +32,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
+        //get movie position in movie items
         holder.movieData(movieItems.get(position));
     }
 

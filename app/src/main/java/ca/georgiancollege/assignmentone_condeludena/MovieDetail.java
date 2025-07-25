@@ -14,7 +14,7 @@ import ca.georgiancollege.assignmentone_condeludena.databinding.ActivityMovieDet
 
 public class MovieDetail extends AppCompatActivity {
     //initialize binding
-    private ActivityMovieDetailBinding activityMovieDetailBinding;
+    public ActivityMovieDetailBinding activityMovieDetailBinding;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -56,7 +56,7 @@ public class MovieDetail extends AppCompatActivity {
         activityMovieDetailBinding.detailActors.setText("Actors: " + actor);
         activityMovieDetailBinding.detailPlot.setText("Plot: " + plot);
 
-        //closes the current view and sends to back
+        //closes the current view and sends to search view
         activityMovieDetailBinding.backButton.setOnClickListener(v -> finish());
     }
 }

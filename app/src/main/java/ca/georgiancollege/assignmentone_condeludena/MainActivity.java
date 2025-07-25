@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //get text input and parse it as string
                 String movieName = activityMainBinding.editMovieText.getText().toString().trim();
-                //use
+                //create movie object with live data
                 viewSearchMovieModel.MovieSearch(movieName);
             }
         });

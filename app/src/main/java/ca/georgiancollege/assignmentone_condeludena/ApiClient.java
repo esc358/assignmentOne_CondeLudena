@@ -15,6 +15,7 @@ public class ApiClient {
 
     private static final OkHttpClient movieClient = new OkHttpClient();
 
+    //method to call api request
     public static void get(String urlMovie, Callback callback){
         Request request = new Request.Builder().url(urlMovie).build();
         movieClient.newCall(request).enqueue(callback);

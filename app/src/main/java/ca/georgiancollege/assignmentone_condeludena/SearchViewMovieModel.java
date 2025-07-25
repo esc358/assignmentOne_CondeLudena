@@ -64,7 +64,6 @@ public class SearchViewMovieModel extends ViewModel {
             //construct the String for urlSearchMovies
             String urlSearchMovies = url + apiKey + searchMovie + name + movieType;
 
-            Log.i("Tag",urlSearchMovies);
             //call method from APIClient and pass url, newCallback
             ApiClient.get(urlSearchMovies, new Callback() {
                 @Override
@@ -178,7 +177,7 @@ public class SearchViewMovieModel extends ViewModel {
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
-                                    //for each iteration sync movieList must be used because of Callback
+                                    //for each iteration sync movieList must be used because of two Callback
                                     synchronized (movieList) {
                                         //add movieModel object to movieList
                                         movieList.add(movieModel);
